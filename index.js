@@ -433,8 +433,8 @@ class Wire extends stream.Duplex {
    * @param  {Buffer} buffer
    */
   piece (index, offset, buffer) {
+    // throw 111
     this.emit('piece-upload', {index, offset, buffer})
-    
     this._debug('piece index=%d offset=%d', index, offset)
     this._message(7, [index, offset], buffer)
     this.uploaded += buffer.length
